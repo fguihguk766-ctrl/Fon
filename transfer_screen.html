@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحويل الأموال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة */
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; color: #343a40; }
+        .container { padding: 20px; padding-bottom: 90px; }
+        
+        /* شريط العنوان (Header) */
+        .header { display: flex; align-items: center; background-color: #007BFF; color: white; padding: 15px 20px; }
+        .header h2 { margin: 0 0 0 15px; font-size: 18px; }
+        .back-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+        /* الأقسام الداخلية */
+        .card { background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
+        .card h3 { font-size: 16px; font-weight: 700; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; margin-top: 0; }
+        
+        /* حقول الإدخال */
+        .input-group label { display: block; font-size: 14px; margin-bottom: 5px; color: #6c757d; }
+        .input-group input, .input-group select { 
+            width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; 
+            box-sizing: border-box; font-size: 16px; font-family: inherit; margin-bottom: 15px; 
+        }
+        
+        /* زر الإجراء السفلي */
+        .footer-action { 
+            position: fixed; bottom: 0; width: 100%; padding: 15px 20px; box-sizing: border-box; 
+            background-color: #ffffff; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        .transfer-btn { 
+            width: 100%; background-color: #FFC107; color: #343a40; padding: 15px; 
+            border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="back-btn" onclick="history.back()"> &lt; </button>
+        <h2>تحويل الأموال</h2>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h3>اختيار العملة والمصدر</h3>
+            <div class="input-group">
+                <label for="currency-select">العملة المراد تحويلها</label>
+                <select id="currency-select">
+                    <option value="USD">USD (الرصيد الأساسي)</option>
+                    <option value="USDT">USDT</option>
+                    <option value="ETH">ETH</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>تفاصيل المستلم</h3>
+            <div class="input-group">
+                <label for="recipient-id">معرف المستلم / رقم المحفظة</label>
+                <input type="text" id="recipient-id" placeholder="أدخل ID أو رقم الهاتف للمستلم">
+            </div>
+            
+            <div class="input-group">
+                <label for="amount-input">المبلغ</label>
+                <input type="number" id="amount-input" placeholder="أدخل مبلغ التحويل">
+                <p style="font-size: 12px; color: #dc3545; margin-top: -10px;">رسوم التحويل: 0.5 USD</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-action">
+        <button class="transfer-btn" onclick="alert('تم إرسال طلب التحويل بنجاح!')">
+            تحويل الآن
+        </button>
+    </div>
+
+</body>
+</html>

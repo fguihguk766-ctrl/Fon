@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار العملة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة */
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; color: #343a40; }
+        
+        /* الهيدر */
+        .header { background-color: #007BFF; color: white; padding: 15px 20px; display: flex; align-items: center; justify-content: flex-start; }
+        .header h2 { margin: 0 0 0 15px; font-size: 18px; }
+        .back-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+        /* قائمة العملات */
+        .currency-list { padding: 20px; }
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .item-content { display: flex; align-items: center; }
+        
+        /* تنسيق أيقونة العملة (باستخدام صور ثابتة بسيطة تحاكي الأيقونات) */
+        .currency-logo {
+            width: 30px;
+            height: 30px;
+            margin-left: 15px;
+            border-radius: 50%; 
+            object-fit: contain;
+            /* إضافة ظل بسيط لجعل الأيقونة بارزة */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+        }
+        .currency-name { font-weight: 600; }
+        .item-arrow { color: #6c757d; font-size: 18px; font-weight: 700; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="back-btn" onclick="history.back()"> &lt; </button>
+        <h2>اختر العملة للإيداع</h2>
+    </div>
+
+    <div class="currency-list">
+        
+        <a href="#" onclick="serverBusy('BEP20-USDC')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/007BFF/FFFFFF?text=$" class="currency-logo" alt="USDC Icon">
+                <span class="currency-name">BEP20-USDC</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="copyAddress('0x8e554a55c795f2541cb9a2c828c3a0133c52b642', 'BNB')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/F3BA2F/FFFFFF?text=B" class="currency-logo" alt="BNB Icon">
+                <span class="currency-name">BNB</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('TRX')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/FF0609/FFFFFF?text=T" class="currency-logo" alt="TRX Icon">
+                <span class="currency-name">TRX</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="copyAddress('TC56AfDWP93c7GDvdKkniqz3XwP2mamqgG', 'TRC20-USDT')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/26A17B/FFFFFF?text=T" class="currency-logo" alt="USDT Icon">
+                <span class="currency-name">TRC20-USDT</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('POLYGON-USDT')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/7C4FCF/FFFFFF?text=P" class="currency-logo" alt="Polygon Icon">
+                <span class="currency-name">POLYGON-USDT</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('ETH-USDT')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/62688F/FFFFFF?text=E" class="currency-logo" alt="ETH Icon">
+                <span class="currency-name">ETH-USDT</span>
+            </div>
+        </a>
+        
+        <a href="#" onclick="serverBusy('POLYGON-USDC')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/007BFF/FFFFFF?text=$" class="currency-logo" alt="USDC Icon">
+                <span class="currency-name">POLYGON-USDC</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('ETH-USDC')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/62688F/FFFFFF?text=$" class="currency-logo" alt="ETH-USDC Icon">
+                <span class="currency-name">ETH-USDC</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('ETH')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/62688F/FFFFFF?text=E" class="currency-logo" alt="ETH Icon">
+                <span class="currency-name">ETH</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('POLYGON')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/7C4FCF/FFFFFF?text=P" class="currency-logo" alt="Polygon Icon">
+                <span class="currency-name">POLYGON</span>
+            </div>
+        </a>
+
+        <a href="#" onclick="serverBusy('ETH-PYUSD')" class="list-item">
+            <span class="item-arrow">></span>
+            <div class="item-content">
+                <img src="https://via.placeholder.com/30/007AFF/FFFFFF?text=P" class="currency-logo" alt="PYUSD Icon">
+                <span class="currency-name">ETH-PYUSD</span>
+            </div>
+        </a>
+
+    </div>
+
+    <script>
+        // دالة لعرض رسالة "السيرفر مشغول"
+        function serverBusy(currency) {
+            alert('عفواً، السيرفر مشغول حالياً لعملة ' + currency + '. يرجى اختيار عملة USDT أو BNB مؤقتاً.');
+        }
+
+        // دالة لنسخ العنوان عند الضغط على العملات العاملة
+        function copyAddress(address, currency) {
+            // إنشاء عنصر نصي مؤقت لنسخ النص منه
+            const tempInput = document.createElement('input');
+            tempInput.value = address;
+            document.body.appendChild(tempInput);
+            
+            // تحديد ونسخ النص
+            tempInput.select();
+            document.execCommand('copy');
+            
+            // إزالة العنصر المؤقت
+            document.body.removeChild(tempInput);
+            
+            // إظهار رسالة للعميل
+            alert('تم نسخ عنوان محفظة ' + currency + ' بنجاح!\n\nالعنوان هو: ' + address + '\n\nيرجى فتح محفظتك الخاصة لإكمال عملية الإيداع.');
+        }
+    </script>
+</body>
+</html>

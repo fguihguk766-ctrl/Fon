@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التداول والاستثمار</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة - العودة للون الفاتح */
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; color: #343a40; }
+        .container { padding: 20px; padding-bottom: 80px; } 
+        
+        /* شريط العنوان (Header) */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .icon-btn { background: none; border: none; font-size: 24px; color: #343a40; cursor: pointer; }
+
+        /* قسم الرصيد */
+        .balance-card { background: #ffffff; border-radius: 15px; padding: 30px 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); text-align: center; margin-bottom: 20px; }
+        .balance-card h4 { font-weight: 400; color: #6c757d; margin-bottom: 5px; }
+        .balance-amount { 
+            font-size: 38px; 
+            font-weight: 700; 
+            color: #007BFF; /* اللون الأساسي */
+        }
+        
+        /* أزرار العمليات السريعة - تحديث الأيقونات والألوان */
+        .quick-actions { 
+            display: flex; justify-content: space-around; 
+            /* إضافة زر رابع */
+            gap: 10px; margin-bottom: 30px; 
+        }
+        .action-btn { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1; 
+            padding: 15px 10px; background: #ffffff; border: none; border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); cursor: pointer; text-decoration: none; 
+            color: #343a40; font-size: 14px; font-weight: 600;
+        }
+        .action-icon { font-size: 28px; margin-bottom: 5px; }
+        
+        /* تحديد ألوان الأيقونات الجديدة */
+        .deposit .action-icon { color: #FFC107; } /* أعلى (إيداع): ذهبي */
+        .withdraw .action-icon { color: #DC3545; } /* انسحاب (سحب): أحمر */
+        .transfer .action-icon { color: #007BFF; } /* دعوة (تحويل): أزرق */
+        .lucky .action-icon { color: #28A745; } /* مربع محظوظ: أخضر */
+
+        /* شريط التنقل السفلي */
+        .footer-nav { 
+            position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; 
+            background-color: #ffffff; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); padding: 10px 0;
+        }
+        .nav-item { text-align: center; color: #6c757d; font-size: 12px; text-decoration: none; padding: 5px 0; }
+        .nav-item.active { color: #007BFF; font-weight: 600; }
+        .nav-icon { font-size: 24px; display: block; margin-bottom: 3px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <span class="logo">منصتنا</span>
+        <div>
+            <button class="icon-btn" onclick="location.href='settings_screen.html'">⚙️</button>
+            <button class="icon-btn" onclick="alert('لا توجد إشعارات جديدة حالياً.')">🔔</button>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="balance-card">
+            <h4>إجمالي الرصيد الحالي</h4>
+            <div class="balance-amount">
+                USD 0.00 </div> </div>
+
+        <div class="quick-actions">
+            <a href="currency_list.html" class="action-btn deposit">
+                <span class="action-icon">⬆️</span> 
+                <span>أعلى</span>
+            </a>
+            <a href="currency_list.html?action=withdraw" class="action-btn withdraw">
+                <span class="action-icon">⬇️</span>
+                <span>انسحاب</span>
+            </a>
+            <a href="transfer_screen.html" class="action-btn transfer">
+                <span class="action-icon">👥</span> 
+                <span>دعوة</span>
+            </a>
+             <a href="lucky_box.html" class="action-btn lucky">
+                <span class="action-icon">🍀</span> 
+                <span>مربع محظوظ</span>
+            </a>
+        </div>
+        
+        <h3>آخر الأنشطة</h3>
+        <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <p>لا توجد أنشطة حديثة لعرضها.</p>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <a href="#" class="nav-item active"> <span class="nav-icon">🏠</span> <span>بيت</span> </a>
+        <a href="profile_screen.html" class="nav-item"> <span class="nav-icon">👤</span> <span>مستخدم</span> </a>
+        <a href="team_screen.html" class="nav-item"> <span class="nav-icon">👥</span> <span>فريق</span> </a>
+        <a href="finance_screen.html" class="nav-item"> <span class="nav-icon">💰</span> <span>صندوق GSM</span> </a>
+        <a href="market_screen.html" class="nav-item"> <span class="nav-icon">📊</span> <span>استثمار</span> </a>
+    </div>
+
+</body>
+</html>

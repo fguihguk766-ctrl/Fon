@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سحب الأموال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة */
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; color: #343a40; }
+        .container { padding: 20px; padding-bottom: 90px; }
+        
+        /* شريط العنوان (Header) */
+        .header { display: flex; align-items: center; background-color: #007BFF; color: white; padding: 15px 20px; }
+        .header h2 { margin: 0 0 0 15px; font-size: 18px; }
+        .back-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+        /* الأقسام الداخلية */
+        .card { background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
+        .card h3 { font-size: 16px; font-weight: 700; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; margin-top: 0; }
+        
+        /* حقول الإدخال */
+        .input-group label { display: block; font-size: 14px; margin-bottom: 5px; color: #6c757d; }
+        .input-group input, .input-group select { 
+            width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; 
+            box-sizing: border-box; font-size: 16px; font-family: inherit; margin-bottom: 15px; 
+        }
+        
+        /* معلومات الرسوم */
+        .fee-details { font-size: 14px; text-align: right; }
+        .fee-details div { display: flex; justify-content: space-between; margin-top: 8px; }
+        .fee-details .net-amount { font-size: 16px; font-weight: 700; color: #28A745; margin-top: 15px; }
+
+        /* زر الإجراء السفلي */
+        .footer-action { 
+            position: fixed; bottom: 0; width: 100%; padding: 15px 20px; box-sizing: border-box; 
+            background-color: #ffffff; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        .withdraw-btn { 
+            width: 100%; background-color: #DC3545; color: white; padding: 15px; 
+            border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="back-btn" onclick="history.back()"> &lt; </button>
+        <h2>سحب الأموال</h2>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <p style="font-size: 14px; color: #6c757d; margin: 0;">الرصيد المتاح للسحب (USDT):</p>
+            <p style="font-size: 24px; font-weight: 700; margin-top: 5px;">250.00 USDT</p>
+        </div>
+
+        <div class="card">
+            <h3>تفاصيل السحب</h3>
+            <div class="input-group">
+                <label for="currency-select">العملة والشبكة</label>
+                <select id="currency-select">
+                    <option value="USDT-TRC20">USDT (TRC20)</option>
+                    <option value="USDT-ERC20">USDT (ERC20)</option>
+                    <option value="USDC-TRC20">USDC (TRC20)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="address-input">عنوان محفظة المستلم</label>
+                <input type="text" id="address-input" placeholder="أدخل أو الصق عنوان المحفظة">
+            </div>
+            
+            <div class="input-group">
+                <label for="amount-input">المبلغ</label>
+                <input type="number" id="amount-input" placeholder="أدخل مبلغ السحب">
+                <button style="float: left; background: none; border: none; color: #007BFF; font-size: 14px; margin-top: -45px; margin-left: 10px; cursor: pointer;">الحد الأقصى</button>
+            </div>
+        </div>
+
+        <div class="card fee-details">
+            <h3>الرسوم</h3>
+            <div>
+                <span>رسوم الشبكة (ثابتة):</span>
+                <span>1.00 USDT</span>
+            </div>
+            <div>
+                <span>رسوم المنصة:</span>
+                <span>0.00 USDT</span>
+            </div>
+            <div class="net-amount">
+                <span>المبلغ الصافي الذي سيصلك:</span>
+                <span>249.00 USDT</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-action">
+        <button class="withdraw-btn" onclick="alert('تم إرسال طلب السحب للمراجعة')">
+            سحب الآن
+        </button>
+    </div>
+
+</body>
+</html>

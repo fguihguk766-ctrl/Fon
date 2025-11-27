@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صندوق GSM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; padding-bottom: 70px; color: #343a40; }
+        .header { display: flex; align-items: center; justify-content: flex-start; background-color: #FFC107; color: #343a40; padding: 15px 20px; }
+        .header h2 { margin: 0 0 0 15px; font-size: 18px; }
+        .back-btn { background: none; border: none; color: #343a40; font-size: 24px; cursor: pointer; }
+        .container { padding: 20px; }
+
+        .reward-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); margin-top: 30px; text-align: center; }
+        h1 { color: #007BFF; margin-bottom: 5px; }
+        .balance-display { font-size: 36px; font-weight: 700; color: #DC3545; margin-bottom: 25px; } /* رصيد أحمر وواضح */
+        p { color: #6c757d; }
+
+        .progress-bar { width: 80%; height: 20px; background-color: #E9ECEF; border-radius: 10px; margin: 20px auto; overflow: hidden; }
+        .progress-fill { width: 0%; height: 100%; background-color: #28A745; text-align: center; color: white; line-height: 20px; font-size: 12px; transition: width 0.5s; }
+
+        .claim-btn { 
+            background-color: #FFC107; color: #343a40; padding: 15px 40px; 
+            border: none; border-radius: 50px; font-size: 20px; font-weight: 700; cursor: pointer; margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="back-btn" onclick="history.back()"> &lt; </button>
+        <h2>صندوق GSM</h2>
+    </div>
+
+    <div class="container">
+        <div class="reward-card">
+            <h1>رصيد صندوق GSM</h1>
+            <div class="balance-display" id="gsm-balance">USD 0.00</div> <p>أكمل المهام اليومية لملء الصندوق والحصول على مكافأتك!</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-value"></div>
+            </div>
+            
+            <p style="font-size: 16px; font-weight: 600;">المهام المكتملة اليوم: <span id="tasks-completed">0</span> / 10</p>
+
+            <button class="claim-btn" id="claim-button" onclick="claimReward()" disabled>استلام المكافأة الآن!</button>
+        </div>
+        
+        <div style="margin-top: 20px; font-size: 14px; color: #6c757d;">
+            <p>* يجب إكمال 10 مهام يومياً لتفعيل استلام رصيد الصندوق.</p>
+        </div>
+    </div>
+    
+    <script>
+        const tasksCompleted = 0; // افتراضياً صفر مهمة مكتملة
+        const totalTasks = 10;
+        
+        document.getElementById('tasks-completed').textContent = tasksCompleted;
+        
+        const progressPercent = (tasksCompleted / totalTasks) * 100;
+        const progressBar = document.getElementById('progress-value');
+        
+        progressBar.style.width = progressPercent + '%';
+        progressBar.textContent = `${tasksCompleted}/${totalTasks}`;
+        
+        if (tasksCompleted >= totalTasks) {
+            document.getElementById('claim-button').disabled = false;
+        }
+
+        function claimReward() {
+            if (tasksCompleted >= totalTasks) {
+                // هنا يمكن إضافة منطق زيادة الرصيد (مثال: يزيد 5 دولار)
+                const newBalance = 5.00; 
+                document.getElementById('gsm-balance').textContent = `USD ${newBalance.toFixed(2)}`;
+                alert('🎉 تهانينا! تم استلام مكافأة الصندوق وإضافة 5.00$ إلى رصيد GSM.');
+                document.getElementById('claim-button').disabled = true;
+            } else {
+                alert(`عذراً! يجب إكمال ${totalTasks - tasksCompleted} مهمة أخرى لاستلام مكافأة الصندوق.`);
+            }
+        }
+    </script>
+</body>
+</html>

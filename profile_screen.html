@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة */
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; padding-bottom: 70px; color: #343a40; }
+        
+        /* الهيدر والقسم العلوي */
+        .header-area { 
+            background-color: #007BFF; /* لون أزرق جذاب */
+            color: white; 
+            padding: 15px 20px 40px; /* مساحة أكبر لأسفل الهيدر */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .top-bar h2 { font-size: 18px; margin: 0; }
+        .top-bar button { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+        /* منطقة الرصيد */
+        .balance-bar {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            padding: 10px 0;
+            padding-top: 5px;
+        }
+        .balance-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .balance-value { font-size: 16px; font-weight: 700; color: white; }
+        .balance-label { font-size: 12px; color: rgba(255, 255, 255, 0.8); margin-top: 5px; }
+
+
+        /* شبكة الأيقونات (الخدمات السريعة) */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px 10px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin: -20px 20px 20px; /* سحب البطاقة للأعلى */
+            position: relative;
+            z-index: 5;
+        }
+        .action-item {
+            text-align: center;
+            text-decoration: none;
+            color: #343a40;
+            font-size: 12px;
+        }
+        .action-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 5px;
+        }
+
+        /* تنسيق قائمة الإعدادات (List) */
+        .settings-list { padding: 0 20px; }
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 15px;
+            border-bottom: 1px solid #E9ECEF;
+            cursor: pointer;
+            text-decoration: none;
+            color: #343a40;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+        .item-content { display: flex; align-items: center; }
+        /* لتظهر الأيقونة جنب النص */
+        .item-icon { font-size: 20px; margin-left: 15px; color: #007BFF; }
+        .item-text { font-weight: 600; }
+        .item-arrow { color: #6c757d; font-size: 18px; font-weight: 700; }
+
+        /* تسجيل الخروج (باللون الأحمر) */
+        .logout-btn {
+            background-color: #DC3545;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            width: 90%;
+            display: block;
+            margin: 20px auto;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* شريط التنقل السفلي */
+        .footer-nav { 
+            position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; 
+            background-color: #ffffff; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); padding: 10px 0;
+            z-index: 10;
+        }
+        .nav-item { text-align: center; color: #6c757d; font-size: 12px; text-decoration: none; padding: 5px 0; }
+        .nav-icon { font-size: 24px; display: block; margin-bottom: 3px; }
+        .nav-item[href="profile_screen.html"] { color: #007BFF; font-weight: 600; } 
+    </style>
+</head>
+<body>
+
+    <div class="header-area">
+        <div class="top-bar">
+            <button onclick="history.back()">✕</button>
+            <h2>الملف الشخصي</h2>
+            <button>⋮</button>
+        </div>
+        
+        <div class="balance-bar">
+            <div class="balance-item">
+                <span class="balance-value">0.00</span>
+                <span class="balance-label">الرصيد الإجمالي (USDT)</span>
+            </div>
+            <div class="balance-item">
+                <span class="balance-value">0</span>
+                <span class="balance-label">مبلغ إعادة الشحن (USDT)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-grid">
+        <a href="financial_records.html" class="action-item">
+            <div class="action-icon" style="background-color: #DDEFFF; color: #007BFF;">📜</div>
+            <span>السجلات المالية</span>
+        </a>
+        <a href="#" onclick="alert('لم يتم إنشاء صفحة الحساب بعد.')" class="action-item">
+            <div class="action-icon" style="background-color: #FFEEDD; color: #FFC107;">🏦</div>
+            <span>حساب</span>
+        </a>
+        <a href="#" onclick="alert('لم يتم إنشاء صفحة السحب بعد.')" class="action-item">
+            <div class="action-icon" style="background-color: #F8D3FF; color: #A600FF;">⬇️</div>
+            <span>انسحاب</span>
+        </a>
+        <a href="currency_list.html" class="action-item">
+            <div class="action-icon" style="background-color: #D3F3D3; color: #28A745;">C</div>
+            <span>القيمة المخزنة</span>
+        </a>
+    </div>
+    
+    <div class="container">
+        
+        <div class="settings-list">
+            
+            <a href="change_password.html" class="list-item">
+                <span class="item-arrow"> < </span>
+                <div class="item-content">
+                    <span class="item-icon">🔑</span>
+                    <span class="item-text">تغيير كلمة المرور</span>
+                </div>
+            </a>
+            
+            <a href="team_screen.html" class="list-item">
+                <span class="item-arrow"> < </span>
+                <div class="item-content">
+                    <span class="item-icon">👥</span>
+                    <span class="item-text">فوائد الفريق</span>
+                </div>
+            </a>
+            
+            <a href="white_paper.html" class="list-item">
+                <span class="item-arrow"> < </span>
+                <div class="item-content">
+                    <span class="item-icon">📄</span>
+                    <span class="item-text">الأوراق البيضاء</span>
+                </div>
+            </a>
+
+            <a href="#" onclick="alert('لم يتم إنشاء صفحة الإعدادات والخصوصية.')" class="list-item">
+                <span class="item-arrow"> < </span>
+                <div class="item-content">
+                    <span class="item-icon">⚙️</span>
+                    <span class="item-text">الإعدادات والخصوصية</span>
+                </div>
+            </a>
+            
+        </div>
+        
+        <button class="logout-btn" onclick="alert('تم تسجيل الخروج بنجاح!')">
+            تسجيل الخروج
+        </button>
+
+    </div>
+    
+    <div class="footer-nav">
+        <a href="index.html" class="nav-item"> <span class="nav-icon">🏠</span> <span>بيت</span> </a>
+        <a href="market_screen.html" class="nav-item"> <span class="nav-icon">📊</span> <span>استثمار</span> </a>
+        <a href="team_screen.html" class="nav-item"> <span class="nav-icon">👥</span> <span>فريق</span> </a>
+        <a href="contact_us.html" class="nav-item"> <span class="nav-icon">📞</span> <span>اتصل بنا</span> </a>
+        <a href="profile_screen.html" class="nav-item" style="color: #007BFF; font-weight: 600;"> <span class="nav-icon">👤</span> <span>أنا</span> </a>
+    </div>
+
+</body>
+</html>

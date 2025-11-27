@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطط الاستثمار</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة */
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; margin: 0; padding-bottom: 70px; color: #343a40; }
+        .header { display: flex; align-items: center; justify-content: flex-start; background-color: #007BFF; color: white; padding: 15px 20px; }
+        .header h2 { margin: 0 0 0 15px; font-size: 18px; }
+        .back-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+        .container { padding: 20px; }
+
+        /* تنسيق بطاقة الاستثمار (Card) */
+        .investment-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            padding: 20px;
+            text-align: right;
+            border-top: 5px solid #007BFF; 
+        }
+        .plan-title {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .plan-title h3 { margin: 0; font-size: 20px; color: #007BFF; font-weight: 700; }
+        .plan-title img { width: 50px; height: auto; margin-left: 10px; border-radius: 4px; }
+
+        /* منطقة تفاصيل الاستثمار */
+        .details-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #E9ECEF;
+            padding-bottom: 10px;
+        }
+        .detail-label { color: #6c757d; font-size: 14px; }
+        .detail-value { font-weight: 600; font-size: 16px; color: #343a40; }
+        .daily-profit { color: #28A745; font-size: 18px; font-weight: 700; }
+
+        /* زر الشراء */
+        .buy-button {
+            width: 100%;
+            background-color: #007BFF; 
+            color: white; 
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .buy-button:active { background-color: #0056b3; }
+        
+        /* تنسيق خاص للقمة الذهبية */
+        .golden-card {
+            border-top: 5px solid #FFD700; /* ذهبي لامع */
+            background-color: #FFFBEA; /* خلفية خفيفة جداً */
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+        }
+        .golden-card .plan-title h3 { color: #CC9900; }
+        .golden-card .buy-button { background-color: #FFD700; color: #343a40; }
+        
+        /* شريط التنقل السفلي */
+        .footer-nav { 
+            position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; 
+            background-color: #ffffff; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); padding: 10px 0;
+            z-index: 10;
+        }
+        .nav-item { text-align: center; color: #6c757d; font-size: 12px; text-decoration: none; padding: 5px 0; }
+        .nav-icon { font-size: 24px; display: block; margin-bottom: 3px; }
+        .nav-item[href="market_screen.html"] { color: #007BFF; font-weight: 600; } 
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="back-btn" onclick="history.back()"> &lt; </button>
+        <h2>REC Newenergy - الخطط الاستثمارية</h2>
+    </div>
+
+    <div class="container">
+
+        <div class="investment-card golden-card">
+            <div class="plan-title">
+                <h3>✨ القمة الذهبية (Golden Peak)</h3>
+                <img src="https://via.placeholder.com/100x100?text=GOLD" alt="Golden Unit"> 
+            </div>
+            
+            <div class="details-area">
+                <span class="detail-value daily-profit">16.00 USDT</span>
+                <span class="detail-label">العائد اليومي</span>
+            </div>
+            
+            <div class="details-area">
+                <span class="detail-value">96.00 USDT</span>
+                <span class="detail-label">إجمالي الربح</span>
+            </div>
+
+            <div class="details-area">
+                <span class="detail-value">يوم 6</span>
+                <span class="detail-label">دورة الاستثمار (سريعة!)</span>
+            </div>
+
+            <div class="details-area" style="border-bottom: none;">
+                <span class="detail-value">3</span>
+                <span class="detail-label">عدد الاستثمارات المتاحة يومياً</span>
+            </div>
+
+            <button class="buy-button" onclick="window.location.href='currency_list.html'">
+                اشترِ الآن (50.00 USDT)
+            </button>
+        </div>
+        <div class="investment-card">
+            <div class="plan-title">
+                <h3>N-Peak 1</h3>
+                <img src="https://via.placeholder.com/100x100?text=Solar" alt="Solar Panel"> 
+            </div>
+            
+            <div class="details-area">
+                <span class="detail-value daily-profit">2.08 USDT</span>
+                <span class="detail-label">العائد اليومي</span>
+            </div>
+            
+            <div class="details-area">
+                <span class="detail-value">62.40 USDT</span>
+                <span class="detail-label">إجمالي الربح</span>
+            </div>
+
+            <div class="details-area">
+                <span class="detail-value">يوم 30</span>
+                <span class="detail-label">دورة الاستثمار</span>
+            </div>
+
+            <div class="details-area" style="border-bottom: none;">
+                <span class="detail-value">1</span>
+                <span class="detail-label">عدد الاستثمارات المتاحة يومياً</span>
+            </div>
+
+            <button class="buy-button" onclick="window.location.href='currency_list.html'">
+                اشترِ الآن (16.00 USDT)
+            </button>
+        </div>
+
+        <div class="investment-card" style="border-top: 5px solid #DC3545;">
+            <div class="plan-title">
+                <h3>N-Peak 2</h3>
+                <img src="https://via.placeholder.com/100x100?text=Solar" alt="Solar Panel"> 
+            </div>
+            
+            <div class="details-area">
+                <span class="detail-value daily-profit">22.50 USDT</span>
+                <span class="detail-label">العائد اليومي</span>
+            </div>
+            
+            <div class="details-area">
+                <span class="detail-value">675.00 USDT</span>
+                <span class="detail-label">إجمالي الربح</span>
+            </div>
+
+            <div class="details-area">
+                <span class="detail-value">يوم 30</span>
+                <span class="detail-label">دورة الاستثمار</span>
+            </div>
+
+            <div class="details-area" style="border-bottom: none;">
+                <span class="detail-value">1</span>
+                <span class="detail-label">عدد الاستثمارات المتاحة يومياً</span>
+            </div>
+
+            <button class="buy-button" onclick="window.location.href='currency_list.html'" style="background-color: #DC3545;">
+                اشترِ الآن (150.00 USDT)
+            </button>
+        </div>
+        
+    </div>
+    
+    <div class="footer-nav">
+        <a href="index.html" class="nav-item"> <span class="nav-icon">🏠</span> <span>بيت</span> </a>
+        <a href="profile_screen.html" class="nav-item"> <span class="nav-icon">👤</span> <span>مستخدم</span> </a>
+        <a href="team_screen.html" class="nav-item"> <span class="nav-icon">👥</span> <span>فريق</span> </a>
+        <a href="finance_screen.html" class="nav-item"> <span class="nav-icon">💰</span> <span>صندوق GSM</span> </a>
+        <a href="market_screen.html" class="nav-item"> <span class="nav-icon">📊</span> <span>استثمار</span> </a>
+    </div>
+
+</body>
+</html>
